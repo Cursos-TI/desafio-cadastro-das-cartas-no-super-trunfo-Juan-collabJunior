@@ -46,10 +46,6 @@ int main() {
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &pontosTuristicos);
 
-    // Calcular Densidade Populacional e PIB per Capita
-    densidadePopulacional = populacao / area;
-    pibPerCapita = (pib * 1000000000) / (float)populacao;
-
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
