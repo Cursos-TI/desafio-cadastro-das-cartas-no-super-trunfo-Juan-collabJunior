@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>  // Incluído para usar strcspn
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
@@ -15,6 +16,8 @@ int main() {
     float area;
     float pib;
     int pontosTuristicos;
+    float densidadePopulacional;
+    float pibPerCapita;
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -23,9 +26,13 @@ int main() {
     printf("O código da cidade pode ser de A até H, mas tem um limite de quatro cidades por letra, ou seja, A05 não existe portanto é inválido\n");
     printf("Digite o código da cidade (Exp: A01, B03, F03, H04): ");
     scanf("%s", codigoCidade);
+    getchar(); // Limpa o buffer após ler o código da cidade
+
 
     printf("Digite o nome da cidade: ");
-    scanf("%s", nomeCidade);
+    fgets(nomeCidade, sizeof(nomeCidade), stdin);
+    // Remove a nova linha lida por fgets
+    nomeCidade[strcspn(nomeCidade, "\n")] = 0;
 
     printf("Digite a população da cidade: ");
     scanf("%d", &populacao);
@@ -39,6 +46,10 @@ int main() {
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &pontosTuristicos);
 
+    // Calcular Densidade Populacional e PIB per Capita
+    densidadePopulacional = populacao / area;
+    pibPerCapita = (pib * 1000000000) / (float)populacao;
+
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
@@ -51,5 +62,7 @@ int main() {
     printf("Área: %.2f km²\n", area);
     printf("PIB: %.2f bilhões\n", pib);
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional);
+    printf("PIB per Capita: %.2f\n", pibPerCapita);
     return 0;
 }
