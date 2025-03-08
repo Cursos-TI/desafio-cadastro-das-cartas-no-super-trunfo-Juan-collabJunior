@@ -49,16 +49,16 @@ int main() {
     // Remove quebra de linha lida pelo fgets
     nomeCidade1[strcspn(nomeCidade1, "\n")] = 0;
 
-    printf("Digite a populacao da cidade (unsigned long int): ");
+    printf("Digite a populacao da cidade: ");
     scanf("%lu", &populacao1);
 
-    printf("Digite a area da cidade em km² (float): ");
+    printf("Digite a area da cidade em km²: ");
     scanf("%f", &area1);
 
-    printf("Digite o PIB da cidade em bilhoes (float): ");
+    printf("Digite o PIB da cidade em bilhoes: ");
     scanf("%f", &pib1);
 
-    printf("Digite o numero de pontos turisticos (int): ");
+    printf("Digite o numero de pontos turisticos: ");
     scanf("%d", &pontosTuristicos1);
 
      //  Carta 2
@@ -68,20 +68,20 @@ int main() {
      scanf("%3s", codigoCidade2);
      getchar();
  
-     printf("Digite o nome da cidade: ");
+     printf("Digite o nome da cidade:");
      fgets(nomeCidade2, sizeof(nomeCidade2), stdin);
      nomeCidade2[strcspn(nomeCidade2, "\n")] = 0;
  
-     printf("Digite a populacao da cidade (unsigned long int): ");
+     printf("Digite a populacao da cidade: ");
      scanf("%lu", &populacao2);
  
-     printf("Digite a area da cidade em km² (float): ");
+     printf("Digite a area da cidade em km²: ");
      scanf("%f", &area2);
  
-     printf("Digite o PIB da cidade em bilhoes (float): ");
+     printf("Digite o PIB da cidade em bilhoes: ");
      scanf("%f", &pib2);
  
-     printf("Digite o numero de pontos turisticos (int): ");
+     printf("Digite o numero de pontos turisticos: ");
      scanf("%d", &pontosTuristicos2);
 
 
