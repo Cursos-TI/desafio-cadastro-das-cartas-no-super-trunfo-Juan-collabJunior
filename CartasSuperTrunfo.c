@@ -11,6 +11,7 @@ int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     // ---------- Declaração de variáveis para a CARTA 1 ----------
+    char estado1[3];  
     char codigoCidade1[4];
     char nomeCidade1[50];
     unsigned long int populacao1;
@@ -22,6 +23,7 @@ int main() {
     float superPoder1;
 
     // ---------- Declaração de variáveis para a CARTA 2 ----------
+    char estado2[3];   
     char codigoCidade2[4];
     char nomeCidade2[50];
     unsigned long int populacao2;
@@ -40,6 +42,10 @@ int main() {
 
     //  Carta 1
     printf("=== Cadastro da CARTA 1 ===\n");
+    printf("Digite o estado (ex: SP): ");
+    scanf("%2s", estado1);
+    getchar();
+
     printf("Digite o codigo da cidade (Ex: A01, B03, F03, H04): ");
     scanf("%3s", codigoCidade1);
     getchar(); // Limpa o buffer apos ler o codigo
@@ -63,12 +69,15 @@ int main() {
 
      //  Carta 2
      printf("\n=== Cadastro da CARTA 2 ===\n");
-     getchar(); // Limpa o buffer antes de ler o codigo
+     printf("Digite o estado (ex: RJ): ");
+     scanf("%2s", estado2);
+     getchar();
+
      printf("Digite o codigo da cidade (Ex: A02, C04, G01, H03): ");
      scanf("%3s", codigoCidade2);
      getchar();
  
-     printf("Digite o nome da cidade:");
+     printf("Digite o nome da cidade: ");
      fgets(nomeCidade2, sizeof(nomeCidade2), stdin);
      nomeCidade2[strcspn(nomeCidade2, "\n")] = 0;
  
@@ -127,17 +136,18 @@ int main() {
     printf("Super Poder: %.2f\n", superPoder2);
 
 
-    // ------------ Comparações usando operadores relacionais -------------
-    // Para cada atributo, a expressão retorna 1 se Carta 1 vencer ou 0 se Carta 2 vencer.
-    // Obs.: Para Densidade Populacional, a carta com menor valor vence.
-    printf("\n=== Comparacao de Cartas ===\n");
-    printf("Populacao: Carta 1 venceu (%d)\n", (populacao1 > populacao2));
-    printf("Area: Carta 1 venceu (%d)\n", (area1 > area2));
-    printf("PIB: Carta 1 venceu (%d)\n", (pib1 > pib2));
-    printf("Pontos Turisticos: Carta 1 venceu (%d)\n", (pontosTuristicos1 > pontosTuristicos2));
-    printf("Densidade Populacional: Carta 1 venceu (%d)\n", (densidadePopulacional1 < densidadePopulacional2));
-    printf("PIB per Capita: Carta 1 venceu (%d)\n", (pibPerCapita1 > pibPerCapita2));
-    printf("Super Poder: Carta 1 venceu (%d)\n", (superPoder1 > superPoder2));
+    // ------------ Comparação: Escolha um atributo (nesse exemplo, População) -------------
+    printf("\n=== Comparacao de Cartas (Atributo: Populacao) ===\n");
+    printf("Carta 1 - %s (%s - %s): %lu\n", nomeCidade1, estado1, codigoCidade1, populacao1);
+    printf("Carta 2 - %s (%s - %s): %lu\n", nomeCidade2, estado2, codigoCidade2, populacao2);
+
+    if (populacao1 > populacao2) {
+        printf("Resultado: Carta 1 (%s) venceu! [populacao1 (%lu) > populacao2 (%lu)]\n", nomeCidade1, populacao1, populacao2);
+    } else if (populacao1 < populacao2) {
+        printf("Resultado: Carta 2 (%s) venceu! [populacao1 (%lu) < populacao2 (%lu)]\n", nomeCidade2, populacao1, populacao2);
+    } else {  // Caso as populações sejam iguais
+        printf("Resultado: Empate! [populacao1 (%lu) == populacao2 (%lu)]\n", populacao1, populacao2);
+    }
 
     return 0;
 
