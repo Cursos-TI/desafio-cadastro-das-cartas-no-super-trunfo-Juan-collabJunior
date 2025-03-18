@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <string.h>  // Incluído para usar strcspn, eu queria remover a quebra de linha
 
+//Eu não consegui fazer com que seja possível usar as cartas pré-cadastradas
+// sem que eu colocasse valores fixos nas variáveis 
+
+
+
+
+
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
